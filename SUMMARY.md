@@ -1,6 +1,6 @@
 # Summary
 
-* [Chapter1](Chapter1.md)
+* [Chapter1](chapter1.md)
 * [Introduction](introduction.md)
 * [观察者模式](src/java/observer/Observer.md)
 * [代理模式](src/java/proxy/Proxy.md)

@@ -11,7 +11,7 @@ public class Geek{
         DynamicProxyHandler dynamicproxyhandler = new DynamicProxyHandler(gae);
         Search dynamicproxysearch = (Search)Proxy.newProxyInstance(
             Search.class.getClassLoader(),
-            new Class[]{Search.class},
+            gae.getClass().getInterfaces(),
             dynamicproxyhandler);
         System.out.println("Result is :"+dynamicproxysearch.googlesearch("wxp"));
     }

@@ -1,0 +1,30 @@
+public class UserImpl implements User{
+  private String name ;
+  private int id;
+  private String notification;
+
+  public String getName(){
+    return name;
+  }
+
+  public void setName(String name){
+    this.name = name;
+  }
+
+  public int getId(){
+    return id;
+  }
+
+  public void setId(int id){
+    this.id = id;
+  }
+
+  public String receiveNotification(){
+    return notification;
+  }
+
+  public void sendNotification(String notification){
+    this.notification = notification;
+  }
+
+}

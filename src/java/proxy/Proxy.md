@@ -26,7 +26,7 @@
 
 #### 实例
 
-举个例子，“有时候”不能访问谷歌，所以只能翻墙，Ubuntu环境下，使用GoAgent来实现翻墙还是比较方便的。详情请阅![http://www.wisanper.com/blog/2014/11/26/Wall.html](http://www.wisanper.com/blog/2014/11/26/Wall.html)
+举个例子，“有时候”不能访问谷歌，所以只能翻墙，Ubuntu环境下，使用GoAgent来实现翻墙还是比较方便的。详情请阅[http://www.wisanper.com/blog/2014/11/26/Wall.html](http://www.wisanper.com/blog/2014/11/26/Wall.html)
 
 于是现在就可以通过代理模式来解决上面这中情形下产生的问题
 
@@ -158,7 +158,7 @@ private Object mProxied;
 Proxy即为代理类，作用类似于上面的GoAgent类，它有一个 `Static Object newProxyInstance(ClassLoader loader, Class[] interfaces, InvocationHandler h)` 方法返回代理类的一个实例，返回后的代理类，可以当作被代理类使用，也就是可以使用googlesearch方法。
 
 - 第一个参数是代理类的类加载器
-- 第二个参数是抽象行为方法类
+- 第二个参数是抽象行为方法数组,可以直接通过search.getClass().getInterfaces()来获取
 - 第三个参数是上面提到的调用处理程序DynamicProxyHandler的一个实例
 
 #### 我们在客户端如何使用动态代理对象呢
@@ -168,7 +168,7 @@ GAE gae = new GAE();
 DynamicProxyHandler dynamicproxyhandler = new DynamicProxyHandler(gae);
 Search dynamicproxysearch = (Search)Proxy.newProxyInstance(
     Search.class.getClassLoader(),
-    new Class[]{Search.class},
+    gae.getClass().getInterfaces(),
     dynamicproxyhandler);
 System.out.println("Result is :"+dynamicproxysearch.googlesearch("wxp"));
 ```
@@ -190,3 +190,12 @@ Result is :pcx : 1426746484620
 
 可以看到在实例化DynamicProxyHandler对象时，只要传入一个目标对象的实例即可。
 这样我们就不必为每个目标对象都实现一个代理类了，只要通过动态代理来生成一个代理对象，然后调用它的代理方法即可。
+
+- - -
+
+实例源码：[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ProxyExample](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ProxyExample)
+
+另外附送通过动态代理实现不同访问权限的用户的例子：
+
+[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ControlAccess](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ControlAccess)
+

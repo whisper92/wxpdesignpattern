@@ -1,5 +1,5 @@
-public class FindElementDichotomy implements FindElement {
-    
+public class FindElementDirectly implements FindElement{
+
     @Override
     public int find(int[] array,int e) {
         int pos = -1;

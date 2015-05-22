@@ -140,3 +140,6 @@ Binary --> Pos :6
 
 
 实例源码：[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/strategy/StrategyExample](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/strategy/StrategyExample)
+
+- - -
+THE END.

@@ -195,3 +195,6 @@ Result is :pcx : 1426746484620
 
 [https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ControlAccess](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/proxy/ControlAccess)
 
+- - -
+THE END.
+

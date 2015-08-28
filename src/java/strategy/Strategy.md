@@ -1,26 +1,26 @@
 ## 策略模式
 
-#### 参与者
+## 一、参与者
 
 1. 抽象策略角色
 2. 具体策略角色
 3. 策略使用场景
 4. 客户端
 
-#### 实现
+## 二、实现
 
 1. 抽象策略角色通过接口或者抽象类来定义要实现的业务逻辑方法
 2. 具体策略角色实现抽象策略角色所定义的方法，不同的具体策略角色，他们实现的内容并不一样
 3. 在场景里面的构造方法中传入一个策略角色并作为成员变量。定义一个执行方法，在方法内部调用抽象策略角色的业务逻辑方法
 4. 在客户端最终的目的是完成抽象策略所定义的业务逻辑，所以只要通过使用场景来完成业务逻辑即可
 
-#### 效果
+## 三、效果
 
 对于不同的具体策略，客户端并不关心他们的内部实现，只要根据需求将不同的具体策略应用到场景中都可以实现业务逻辑。
 
 - - -
 
-#### 实例
+## 四、实例
 
 现在客户端需要一个搜索算法。能够查找当前数组中的某个元素的位置。由于客户端想要根据不同的需求采用不同的搜索算法。于是我们定义以下几个参与者：
 
@@ -29,7 +29,7 @@
 3. 策略使用场景： 提供给客户端，并用场景来执行查找行为
 4. 客户端
 
-#### 首先定义FindElement接口
+#### 1.首先定义FindElement接口
 
 ```java
 public interface FindElement {
@@ -38,7 +38,7 @@ public interface FindElement {
 }
 ```
 
-#### 定义具体策略角色1：直接查找法
+#### 2.定义具体策略角色1：直接查找法
 
 ```java
 public class FindElementDirectly implements FindElement{
@@ -57,7 +57,7 @@ public class FindElementDirectly implements FindElement{
 
 ```
 
-#### 定义具体策略角色2：二分查找法
+#### 3.定义具体策略角色2：二分查找法
 
 ```java
 public class FindElementBinary implements FindElement {
@@ -86,7 +86,7 @@ public class FindElementBinary implements FindElement {
 
 ```
 
-#### 定义算法的使用场景
+#### 4.定义算法的使用场景
 
 ```java
 public class FindContext {
@@ -105,7 +105,7 @@ public class FindContext {
 可以看到FindContext有一个FindElement成员变量，它的执行搜索方法内部其实是调用了这个FindElement的find方法，
 所以只要给FindContext的构造函数传入不同的FindElement对象，场景就可以执行不同的搜索算法，当然最终结果都是一样的。
 
-#### 客户端使用场景来调用搜索算法
+#### 5.客户端使用场景来调用搜索算法
 
 ```java
 public class Client {
@@ -122,7 +122,7 @@ public class Client {
 }
 ```
 
-#### 最后来测试一下
+#### 6.最后来测试一下
 
 ```bash
 javac Client.java
@@ -136,8 +136,7 @@ Directly --> Pos :6
 Binary --> Pos :6
 ```
 
-#### 应用场景
-
+- - -
 
 实例源码：[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/strategy/StrategyExample](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/strategy/StrategyExample)
 

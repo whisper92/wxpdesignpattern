@@ -1,23 +1,26 @@
 ## 模板方法模式
 
-#### 概述
+## 一、概述
 
 定义一个操作中的算法的骨架，而将步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义算法的某些特定步骤。
 
-#### 参与者
+## 二、参与者
+
 1. 抽象模板
 2. 具体模板
 
-#### 实现
+## 三、实现
+
 1. 抽象模板定义一些了抽象模板方法，而这些方法交由子类去实现
 2. 具体模板继承抽象模板，并重写抽象模板的模板方法
 
-#### 效果
+## 四、效果
+
 客户端继承抽象模板，实现一个它的一个子类具体模板，并根据具体需求重写抽象模板的模板方法
 
 - - -
 
-#### 实例
+## 五、实例
 
 现在有一个算法框架，定义了排序和搜素元素两个抽象方法，而具体的实现则交由客户端实现继承它的子类再去具体实现，至于子类采用什么样的排序和搜索算法，会由客户端自己决定。
 
@@ -28,7 +31,7 @@
 
 下面来看一下具体的代码实现
 
-#### 抽象模板：AbstractAlgorithmTemplate.java
+#### 1.抽象模板：AbstractAlgorithmTemplate.java
 
 ```java
 public abstract class AbstractAlgorithmTemplate {
@@ -46,7 +49,7 @@ public abstract class AbstractAlgorithmTemplate {
 
 ```
 
-#### 具体模板：ConcretAlgorithm.java
+#### 2.具体模板：ConcretAlgorithm.java
 
 ```java
 
@@ -107,7 +110,7 @@ public class ConcretAlgorithm extends AbstractAlgorithmTemplate {
 }
 ```
 
-#### 下面来测试一下
+#### 3.下面来测试一下
 
 ```java
 
@@ -139,6 +142,10 @@ public class TestTemplate
   1  2  3  4  5  6  7
 搜索元素 ： 2 ； 位置为 ： 1
 ```
+
+- - -
+
+实例源码：[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/template/TemplateExample](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/template/TemplateExample)
 
 - - -
 THE END.

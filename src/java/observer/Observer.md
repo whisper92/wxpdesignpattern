@@ -1,23 +1,26 @@
 ## 观察者模式
 
-#### 参与者
+## 一、参与者
+
 1. 抽象观察者
 2. 抽象被观察者
 3. 具体观察者
 4. 具体被观察者
 
-#### 实现
+## 二、实现
+
 1. 抽象观察者中定义一个抽象行为方法,观察到变化以后执行这个行为
 2. 抽象被观察者要实现一个以观察者为参数的构造方法,并且拥有注册和解除观察者的方法
 3. 具体被观察者重写抽象观察者的行为方法,并在这个方法中调用观察者的行为方法.
 4. 具体观察者重写抽象观察者的行为方法,并且在这个方法中实现观察到状态变化之后的一些操作.
 
-#### 效果
+## 三、效果
+
 最后只要在客户端调用被观察者的行为方法,观察者也会产生相对应的行为.
 
 - - -
 
-#### 实例
+## 四、实例
 
 客户端可以向服务器订阅RSS消息，一旦服务器更新了内容，客户端就可以接受更新的内容了。
 
@@ -30,7 +33,7 @@
 
 下面来看一下具体的代码实现
 
-####  抽象被观察者：IRSSServerWatched 接口
+## 1.抽象被观察者：IRSSServerWatched 接口
 
 ```java
 //抽象被观察者：RSS订阅服务器接口
@@ -41,7 +44,7 @@ public interface IRSSServerWatched {
 }
 ```
 
-#### 抽象观察者：IClientWatcher 接口
+#### 2.抽象观察者：IClientWatcher 接口
 
 ```java
 //抽象观察者：客户端订阅程序接口
@@ -50,7 +53,7 @@ public interface IClientWatcher {
 }
 ```
 
-#### 具体被观察者： ConcretRSSServerWatched
+#### 3.具体被观察者： ConcretRSSServerWatched
 
 ```java
 //具体被观察者角色,也就是RSS服务器
@@ -81,7 +84,7 @@ public class ConcretRSSServerWatched implements IRSSServerWatched {
 
 ```
 
-#### 具体观察者：ConcretClientWatcher
+#### 4.具体观察者：ConcretClientWatcher
 
 ```java
 //具体观察者角色：RSS订阅客户端
@@ -93,7 +96,7 @@ public class ConcretClientWatcher implements IClientWatcher {
 }
 ```
 
-#### 下面来测试一下
+#### 5.下面来测试一下
 
 ```java
 
@@ -121,6 +124,10 @@ public class RSSTest {
 客户端更新内容 : 更新的是天气预报。。。
 客户端更新内容 : 更新的是天气预报。。。
 ```
+
+- - -
+
+实例源码：[https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/observer/rss](https://github.com/whisper92/wxpdesignpattern/tree/master/src/java/observer/rss)
 
 - - -
 THE END.

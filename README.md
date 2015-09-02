@@ -69,3 +69,5 @@
 - - -
 
 我的博客：[www.wisim.me](http://www.wisim.me/tags/#DesignPattern)
+
+gitbook地址：[http://whisper.gitbooks.io/wxpdesignpattern/content/](http://whisper.gitbooks.io/wxpdesignpattern/content/)
